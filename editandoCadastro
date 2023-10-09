@@ -1,0 +1,18 @@
+<?php
+
+include "conexão.php";
+
+$id = $POST['id'];
+$nome = $POST['nome'];
+$email = $POST['email'];
+$telefone = $_POST['telefone'];
+
+$buscar_cadastros = "UPDATE cliente_fazenda
+SET nome = '$nome', email = 'email', telefone = 'telefone'
+WHERE id = $id"
+
+$query_cadastros = mysqli_query($conx, $buscar_cadastros) or die(mysqli_error($conx));
+
+header('location: listagem.php');
+
+?>
